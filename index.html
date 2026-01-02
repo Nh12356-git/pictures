@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{ <title>pictures</title> }}
+    <title>pictures</title>
 </head>
 
 <style>
@@ -16,21 +16,34 @@
         height: 797px;
         margin: 0 auto;
         padding: 20px;
-        background-color: gray;
+        /* 移除灰色背景色以消除"边框"效果 */
         display: flex;
         justify-content: center;
         align-items: center; 
+    }
+    /* 添加旋转入场动画定义 */
+    @keyframes rotateIn {
+        from {
+            transform: rotate(30deg);
+            opacity: 0;
+        }
+        to {
+            transform: rotate(0);
+            opacity: 1;
+        }
     }
     .p1 img {
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
+        /* 应用旋转入场动画 */
+        animation: rotateIn 0.5s ease-out;
     } 
 </style>
 
 <body>   
-    {{ <div class="p1">
+    <div class="p1">
         <img src="imgs/cute.jpg" alt="Cute picture">
-    </div> }}
+    </div> 
 </body>
 </html>
