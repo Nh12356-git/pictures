@@ -11,17 +11,17 @@
         margin: 0;
         background-color: #f0f0f0;
     } 
+    /* 容器样式 */
     .p1{
         width: 1220px;
         height: 797px;
         margin: 0 auto;
         padding: 20px;
-        /* 移除灰色背景色以消除"边框"效果 */
         display: flex;
         justify-content: center;
         align-items: center; 
     }
-    /* 添加旋转入场动画定义 */
+    /* 旋转入场动画 */
     @keyframes rotateIn {
         from {
             transform: rotate(30deg);
@@ -32,6 +32,7 @@
             opacity: 1;
         }
     }
+    /* 图片样式 */
     .p1 img {
         max-width: 100%;
         max-height: 100%;
@@ -41,7 +42,8 @@
     } 
 </style>
 
-<body>   
+<body> 
+    /* 图片容器 */  
     <div class="p1">
         <img src="imgs/cute.jpg" alt="Cute picture">
     </div> 
