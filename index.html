@@ -21,24 +21,43 @@
         justify-content: center;
         align-items: center; 
     }
-    /* 旋转入场动画 */
+    /* 旋转+跳跃组合动画（旋转后添加两次跳跃） */
     @keyframes rotateIn {
         from {
             transform: rotate(30deg);
             opacity: 0;
         }
-        to {
+        /* 旋转结束（33%时间点，保持原旋转时长） */
+        33% {
             transform: rotate(0);
             opacity: 1;
         }
+        /* 第一次跳跃上升（50%时间点） */
+        50% {
+            transform: translateY(-20px);
+        }
+        /* 第一次跳跃落地（66%时间点） */
+        66% {
+            transform: translateY(0);
+        }
+        /* 第二次跳跃上升（83%时间点） */
+        83% {
+            transform: translateY(-20px);
+        }
+        /* 第二次跳跃落地（动画结束） */
+        to {
+            transform: translateY(0);
+        }
+        
     }
     /* 图片样式 */
     .p1 img {
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
-        /* 应用旋转入场动画 */
-        animation: rotateIn 0.5s ease-out;
+        transform-origin: center bottom; /* 以底部中心为变换原点，跳跃更自然 */
+        /* 延长动画时长到1.5秒（旋转0.5秒+两次跳跃1秒） */
+        animation: rotateIn 1.5s ease-out;
     } 
 </style>
 
