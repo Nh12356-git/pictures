@@ -65,17 +65,38 @@
         max-height: auto;
         object-fit: contain;
         transform-origin: center bottom; /* 以底部中心为变换原点，跳跃更自然 */
-        /* 延长动画时长到1.5秒（旋转0.5秒+两次跳跃1秒） */
-        animation: rotateIn 1.5s ease-out 2s;
+        /* 初始状态设置 */
+        opacity: 0;
+        transform: rotate(30deg);
+        transform-origin: center bottom; /* 以底部中心为变换原点，跳跃更自然 */
     } 
 </style>
 
 <body>   
     <div class="p1">
-        <img src="imgs/cute.jpg" alt="Cute picture">
+        <img id="animateImg" src="imgs/cute.jpg" alt="Cute picture">
     </div>
-    <div class="b1">
-        <button>Click me</button>
+    <div class="b1" style="text-align: center; margin: 20px;">
+        <button style="padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 5px;">
+            Click me
+        </button>
     </div>
+    
+    <!-- JavaScript 代码 -->
+    <script>
+        // 获取按钮和图片元素
+        const playBtn = document.querySelector('.b1 button');
+        const animateImg = document.getElementById('animateImg');
+        
+        // 点击按钮触发动画
+        playBtn.addEventListener('click', function() {
+            // 重置动画状态（如果需要重复播放）
+            animateImg.style.animation = 'none';
+            animateImg.offsetHeight; // 触发重排
+            
+            // 应用动画
+            animateImg.style.animation = 'rotateIn 1.5s ease-out';
+        });
+    </script>
 </body>
 </html>
