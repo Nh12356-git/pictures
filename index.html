@@ -21,6 +21,15 @@
         justify-content: center;
         align-items: center; 
     }
+    .p2{
+        width: 1220px;
+        height: 797px;
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
     /* 旋转+跳跃组合动画（旋转后添加两次跳跃） */
     @keyframes rotateIn {
         from {
@@ -52,18 +61,21 @@
     }
     /* 图片样式 */
     .p1 img {
-        max-width: 100%;
-        max-height: 100%;
+        max-width: auto;
+        max-height: auto;
         object-fit: contain;
         transform-origin: center bottom; /* 以底部中心为变换原点，跳跃更自然 */
         /* 延长动画时长到1.5秒（旋转0.5秒+两次跳跃1秒） */
-        animation: rotateIn 1.5s ease-out;
+        animation: rotateIn 1.5s ease-out 2s;
     } 
 </style>
 
 <body>   
     <div class="p1">
         <img src="imgs/cute.jpg" alt="Cute picture">
-    </div> 
+    </div>
+    <div class="b1">
+        <button>Click me</button>
+    </div>
 </body>
 </html>
