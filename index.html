@@ -21,15 +21,6 @@
         justify-content: center;
         align-items: center; 
     }
-    .p2{
-        width: 1220px;
-        height: 797px;
-        margin: 0 auto;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center; 
-    }
     /* 旋转+跳跃组合动画（旋转后添加两次跳跃） */
     @keyframes rotateIn {
         from {
@@ -61,13 +52,9 @@
     }
     /* 图片样式 */
     .p1 img {
-        max-width: auto;
-        max-height: auto;
+        max-width: 100%;
+        max-height: 100%;
         object-fit: contain;
-        transform-origin: center bottom; /* 以底部中心为变换原点，跳跃更自然 */
-        /* 初始状态设置 */
-        opacity: 0;
-        transform: rotate(30deg);
         transform-origin: center bottom; /* 以底部中心为变换原点，跳跃更自然 */
     } 
 </style>
@@ -75,27 +62,19 @@
 <body>   
     <div class="p1">
         <img id="animateImg" src="imgs/cute.jpg" alt="Cute picture">
-    </div>
-    <div class="b1" style="text-align: center; margin: 20px;">
-        <button style="padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 5px;">
-            Click me
-        </button>
-    </div>
+    </div> 
     
     <!-- JavaScript 代码 -->
     <script>
-        // 获取按钮和图片元素
-        const playBtn = document.querySelector('.b1 button');
-        const animateImg = document.getElementById('animateImg');
-        
-        // 点击按钮触发动画
-        playBtn.addEventListener('click', function() {
-            // 重置动画状态（如果需要重复播放）
-            animateImg.style.animation = 'none';
-            animateImg.offsetHeight; // 触发重排
+        // 页面加载完成后执行
+        window.addEventListener('load', function() {
+            // 获取图片元素
+            const animateImg = document.getElementById('animateImg');
             
-            // 应用动画
-            animateImg.style.animation = 'rotateIn 1.5s ease-out';
+            // 3秒后执行动画
+            setTimeout(function() {
+                animateImg.style.animation = 'rotateIn 1.5s ease-out';
+            }, 3000);
         });
     </script>
 </body>
